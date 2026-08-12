@@ -122,7 +122,7 @@ class MarkdownEditorWindow final : public mwfl::WindowBase {
         BuildMenu();
         mwfl::Must(accelerators_.Create(commands_), "create Markdown accelerator table");
         SetAccelerators(accelerators_.GetHandle());
-        mwfl::ApplyWindowAppearance(GetHwnd(), {mwfl::ColorMode::light, mwfl::Backdrop::mica});
+        SetAppearance({mwfl::ColorMode::light, mwfl::Backdrop::mica});
 
         SetSearchPanelVisible(false);
         ApplyLayout();

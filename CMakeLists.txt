@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.21)
-project(markdown_editor VERSION 0.1.0 LANGUAGES CXX)
+project(markdown_editor VERSION 0.1.1 LANGUAGES CXX)
 
 include(FetchContent)
 include(GNUInstallDirs)
@@ -15,7 +15,7 @@ if(MARKDOWN_EDITOR_USE_LOCAL_MWFL)
 else()
     FetchContent_Declare(mwfl
         GIT_REPOSITORY https://github.com/mwfl/mwfl.git
-        GIT_TAG v0.1.0)
+        GIT_TAG v0.1.2)
     FetchContent_MakeAvailable(mwfl)
 endif()
 
@@ -29,7 +29,7 @@ FetchContent_MakeAvailable(md4c)
 add_executable(markdown-editor WIN32
     main.cpp markdown_renderer.cpp markdown_renderer.h
     markdown_syntax.cpp markdown_syntax.h
-    markdown_editor.rc resource.h mwfl-mark.ico app.manifest)
+    markdown_editor.rc resource.h app-icon.ico app.manifest)
 target_link_libraries(markdown-editor PRIVATE mwfl::scintilla mwfl::webview2 md4c-html)
 target_include_directories(markdown-editor PRIVATE "${md4c_SOURCE_DIR}/src")
 target_compile_features(markdown-editor PRIVATE cxx_std_20)
