@@ -19,6 +19,10 @@ MWFL Markdown is a native, local-first Markdown editor for Windows. It combines 
 
 Files remain local. Preview rendering happens inside the application and no document content is transmitted to a service.
 
+## Download
+
+Download the versioned `windows-x64-portable.zip` from [GitHub Releases](https://github.com/mwfl/markdown-editor/releases), verify it with the accompanying SHA-256 file, and extract it anywhere. The WebView2 Runtime is required for preview; editing and saving continue to work without it.
+
 ## Build
 
 Visual Studio 2026 is recommended for local development next to an `mwfl` checkout:
