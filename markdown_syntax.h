@@ -15,8 +15,11 @@ public:
     MarkdownSyntax(const MarkdownSyntax&) = delete;
     MarkdownSyntax& operator=(const MarkdownSyntax&) = delete;
 
+    // Portable packages load Lexilla beside the executable, never through PATH.
     bool LoadAdjacent() noexcept;
+    // Owns only the Lexilla module; Scintilla's document remains editor-owned.
     bool Attach(mwfl::ScintillaEditor& editor) noexcept;
+    // Recolors styles without replacing text, selection, or undo history.
     void ApplyTheme(mwfl::ScintillaEditor& editor, EditorTheme theme) const noexcept;
     int StyleAt(const mwfl::ScintillaEditor& editor,
                 mwfl::ScintillaPosition position) const noexcept;
