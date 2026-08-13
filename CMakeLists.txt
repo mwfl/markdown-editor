@@ -15,13 +15,8 @@ if(MARKDOWN_EDITOR_USE_LOCAL_MWFL)
 else()
     FetchContent_Declare(mwfl
         GIT_REPOSITORY https://github.com/mwfl/mwfl.git
-        GIT_TAG v0.1.2)
+        GIT_TAG v0.1.3)
     FetchContent_MakeAvailable(mwfl)
-endif()
-if(TARGET mwfl::ui)
-    set(MARKDOWN_EDITOR_MWFL_UI_TARGET mwfl::ui)
-else()
-    set(MARKDOWN_EDITOR_MWFL_UI_TARGET mwfl::mwfl)
 endif()
 
 set(MD4C_BUILD_TESTS OFF CACHE BOOL "" FORCE)
@@ -35,7 +30,7 @@ add_executable(markdown-editor WIN32
     main.cpp markdown_renderer.cpp markdown_renderer.h
     markdown_syntax.cpp markdown_syntax.h
     markdown_editor.rc resource.h app-icon.ico app.manifest)
-target_link_libraries(markdown-editor PRIVATE ${MARKDOWN_EDITOR_MWFL_UI_TARGET} mwfl::scintilla mwfl::webview2 md4c-html)
+target_link_libraries(markdown-editor PRIVATE mwfl::ui mwfl::scintilla mwfl::webview2 md4c-html)
 target_include_directories(markdown-editor PRIVATE "${md4c_SOURCE_DIR}/src")
 target_compile_features(markdown-editor PRIVATE cxx_std_20)
 target_compile_definitions(markdown-editor PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
