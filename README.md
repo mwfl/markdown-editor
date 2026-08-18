@@ -33,7 +33,7 @@ cmake --build --preset vs2026-x64-release
 ctest --preset vs2026-x64-release
 ```
 
-For a standalone clone, use the `vs2022-x64` preset. It fetches the pinned mwfl v0.1.0, Scintilla/Lexilla, WebView2 SDK, and md4c sources. The WebView2 Runtime must be installed on the machine for preview; Windows 11 normally includes it.
+For a standalone clone, use the `vs2022-x64` preset. It fetches the pinned MWFL Foundation baseline plus Scintilla/Lexilla, WebView2 SDK, and md4c sources. The WebView2 Runtime must be installed on the machine for preview; Windows 11 normally includes it.
 
 ## Dependencies and licenses
 
