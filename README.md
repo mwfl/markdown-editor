@@ -38,3 +38,11 @@ For a standalone clone, use the `vs2022-x64` preset. It fetches the pinned MWFL 
 ## Dependencies and licenses
 
 The application is MIT licensed. Portable packages include license notices for Scintilla/Lexilla and md4c. WebView2 is linked using Microsoft's static loader; the runtime is supplied separately by Microsoft.
+
+## Updates and Portable releases
+
+The app checks the latest stable GitHub Release at most once per day. Use **Settings > Automatically Check for Updates** to disable or re-enable checks, or **Check for Updates** to run one manually. An available update can open the official Portable release, be deferred for three days or one week, or dismissed until the next day. Tag releases publish a versioned `windows-x64-portable.zip` plus a SHA-256 checksum; replacement is always an explicit download-and-extract action.
+
+## Updates and Portable releases
+
+The app checks the latest stable GitHub Release at most once per day. Use **Settings > Automatically Check for Updates** to disable or re-enable checks, or **Check for Updates** to run one manually. An available update can open the official Portable release, be deferred for three days or one week, or dismissed until the next day. Tag releases publish a versioned `windows-x64-portable.zip` plus a SHA-256 checksum; replacement is always an explicit download-and-extract action.

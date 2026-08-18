@@ -5,6 +5,7 @@
 #include "markdown_renderer.h"
 #include "markdown_syntax.h"
 #include "resource.h"
+#include "update_checker.h"
 
 #include <algorithm>
 #include <chrono>
@@ -21,6 +22,8 @@
 using mwfl::operator""_dip;
 
 namespace {
+
+mwfl_examples::UpdateChecker g_update_checker;
 
 constexpr mwfl::ControlId kNew{1200};
 constexpr mwfl::ControlId kOpen{1201};
@@ -162,6 +165,10 @@ class MarkdownEditorWindow final : public mwfl::WindowBase {
                                                   L"WindowPlacement", placement))
             mwfl::RestoreWindowPlacement(GetHwnd(), placement);
 
+        g_update_checker.Attach(
+            GetHwnd(), {L"MWFL Markdown", L"markdown-editor", MWFL_APP_VERSION,
+                        L"Software\\mwfl\\MarkdownEditor\\Updates"},
+            !IsSelfTest() && !IsShowcase());
         if (IsSelfTest() && ::PostMessageW(GetHwnd(), kRunSelfTest, 0, 0) == FALSE)
             throw std::runtime_error("post Markdown editor self-test failed");
     }

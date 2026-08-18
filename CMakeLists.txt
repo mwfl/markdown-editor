@@ -27,13 +27,13 @@ FetchContent_Declare(md4c
 FetchContent_MakeAvailable(md4c)
 
 add_executable(markdown-editor WIN32
-    main.cpp markdown_renderer.cpp markdown_renderer.h
+    main.cpp update_checker.cpp update_checker.h markdown_renderer.cpp markdown_renderer.h
     markdown_syntax.cpp markdown_syntax.h
     markdown_editor.rc resource.h app-icon.ico app.manifest)
-target_link_libraries(markdown-editor PRIVATE mwfl::ui mwfl::scintilla mwfl::webview2 md4c-html)
+target_link_libraries(markdown-editor PRIVATE mwfl::ui mwfl::scintilla mwfl::webview2 md4c-html winhttp comctl32 advapi32 shell32)
 target_include_directories(markdown-editor PRIVATE "${md4c_SOURCE_DIR}/src")
 target_compile_features(markdown-editor PRIVATE cxx_std_20)
-target_compile_definitions(markdown-editor PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX)
+target_compile_definitions(markdown-editor PRIVATE UNICODE _UNICODE WIN32_LEAN_AND_MEAN NOMINMAX MWFL_APP_VERSION=L\"${PROJECT_VERSION}\")
 if(MSVC)
     target_compile_options(markdown-editor PRIVATE /W4 /WX /permissive- /EHsc /utf-8)
 endif()
