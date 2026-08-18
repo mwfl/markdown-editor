@@ -15,7 +15,7 @@ if(MARKDOWN_EDITOR_USE_LOCAL_MWFL)
 else()
     FetchContent_Declare(mwfl
         GIT_REPOSITORY https://github.com/mwfl/mwfl.git
-        GIT_TAG v0.1.0)
+        GIT_TAG 06e085c74a209574c292fbee6302ce3676120256)
     FetchContent_MakeAvailable(mwfl)
 endif()
 
