@@ -5,7 +5,7 @@
 #include "markdown_renderer.h"
 #include "markdown_syntax.h"
 #include "resource.h"
-#include "update_checker.h"
+#include <mwfl/app_support/update_checker.h>
 
 #include <algorithm>
 #include <chrono>
@@ -23,7 +23,7 @@ using mwfl::operator""_dip;
 
 namespace {
 
-mwfl_examples::UpdateChecker g_update_checker;
+mwfl::app_support::UpdateChecker g_update_checker;
 
 constexpr mwfl::ControlId kNew{1200};
 constexpr mwfl::ControlId kOpen{1201};
