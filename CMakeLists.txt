@@ -15,7 +15,7 @@ if(MARKDOWN_EDITOR_USE_LOCAL_MWFL)
 else()
     FetchContent_Declare(mwfl
         GIT_REPOSITORY https://github.com/mwfl/mwfl.git
-        GIT_TAG v0.2.1)
+        GIT_TAG v0.3.0)
     FetchContent_MakeAvailable(mwfl)
 endif()
 set(MD4C_BUILD_TESTS OFF CACHE BOOL "" FORCE)
